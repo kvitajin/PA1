@@ -1,0 +1,3 @@
+/home/kvitajin/CLionProjects/vsb/pa/cv1/CMakeFiles/rebuild_cache.dir
+/home/kvitajin/CLionProjects/vsb/pa/cv1/CMakeFiles/edit_cache.dir
+/home/kvitajin/CLionProjects/vsb/pa/cv1/CMakeFiles/cv1.dir
