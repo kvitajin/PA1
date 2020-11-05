@@ -26,7 +26,7 @@
 Přehled v oblasti návrhu, realizace a hodnocení paralelních algoritmů. Praktické osvojení paralelních programovacích technik pro vybrané paralelní architektury. Pracovní znalosti v oblasti paralelních systémů a jejich programování, zejména: samostatný návrh paralelních algoritmů, resp. paralelizace sekvenčních algoritmů. Praktická realizace paralelního algoritmu na bázi modelu předávání zpráv. Analýza algoritmu a vyhodnocení implementace. Optimalizace a zvyšování efektivity.
 
 ### Vyučovací metody
-Přednášky
+Přednášky  
 Cvičení (v učebně)  
 ### Anotace
 Kurz poskytne posluchačům základy pro aktivní práci v oblasti paralelních systémů, algoritmů a programování. Zaměřuje se na praktickou tvorbu programů, aby byli s to využít dnešní výkonnou výpočetní techniku, od paralelních superpočítačů s distribuovanou pamětí přes vícejádrové procesory až po výpočetní akcelerátory a univerzální grafické karty, pro řešení výpočetně náročných úloh z různých aplikačních oblastí.
