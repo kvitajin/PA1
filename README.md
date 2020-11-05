@@ -58,7 +58,7 @@ Předmět nemá žádné korekvizity.
   
 ### Osnova předmětu  
 #### Přednášky:
-==========
+
 1. Úvod do problematiky programování paralelních aplikací. Procesy a vlákna. Procesy a vlákna z pohledu operačního systému. SIMD a FMA instrukce moderních procesorů.
 
 2. Sekvenční vs. paralelní programování. Úskalí paralelního programování. Uváznutí (definice, vlastnosti, podmínky, detekce, eliminace). 
@@ -87,8 +87,8 @@ Předmět nemá žádné korekvizity.
 
 14. Hybridní paralelní aplikace. Programování pomocí MPI-OpenMP, hybridní CPU-GPU architektury.
 
-#### Cvičení:
-========
+#### Cvičení:  
+
 Obsah cvičení a procvičované úlohy budou korespondovat s látkou probíranou na přednáškách:
 
 1. Přehled prostředí pro tvorbu paralelních aplikací. SIMD instrukce.
