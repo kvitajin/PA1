@@ -1,0 +1,3 @@
+/data/data/com.termux/files/home/PA1/GoLCpp/CMakeFiles/rebuild_cache.dir
+/data/data/com.termux/files/home/PA1/GoLCpp/CMakeFiles/edit_cache.dir
+/data/data/com.termux/files/home/PA1/GoLCpp/CMakeFiles/GoLCpp.dir
