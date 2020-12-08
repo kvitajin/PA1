@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/GoLCpp.dir/main.cpp.o  -o GoLCpp 
+/usr/bin/c++   -pthread -g   CMakeFiles/GoLCpp.dir/main.cpp.o  -o GoLCpp 
