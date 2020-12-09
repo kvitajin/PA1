@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <thread>
 #include <mutex>
+#include <latch>
 
 using namespace std;
 std::mutex mut;
@@ -38,10 +39,11 @@ void surroundings(int &i, int &j, std::vector<std::vector<int>> &arr, int &count
 	}
 
 }
-void lineInThread(std::vector<std::vector<int>> &arr, int line){
+void lineInThread(std::vector<std::vector<int>> &arr, std::latch &latch, int line){
     int counter = 0;
     std::vector<int> tmpLine;
     tmpLine.resize(arr.size());
+
     for(int cell = 0; cell< arr[line].size(); ++cell){
         surroundings(line, cell, arr, counter);
         if (arr[line][cell] && counter<2 ){                                   //otocenae znamenko >
@@ -58,7 +60,7 @@ void lineInThread(std::vector<std::vector<int>> &arr, int line){
         }
 
     }
-
+    latch.count_down();
     mut.lock();
     std::copy(begin(tmpLine), end(tmpLine), std::begin(arr[line]));
 //    arr[line].emplace(tmpLine.cbegin(), tmpLine.cend());
@@ -74,14 +76,14 @@ void paralelRound(std::vector<std::vector<int>> &arr){
     std::vector<std::vector<int>> tmp;
     std::vector<std::thread> threads;
     std::vector<int> row;
-
+    std::latch latch(arr.size());
     tmp.resize(arr.size());
     for (int i = 0; i < arr.size(); ++i) {
         tmp[i].resize(arr[i].size());
     }
 
     for (int th = 0; th < arr.size(); ++th){
-        threads.emplace_back(std::thread(lineInThread,std::ref(arr), th));
+        threads.emplace_back(std::thread(lineInThread,std::ref(arr), std::ref(latch), th));
     }
 
     for (std::thread & th : threads){
