@@ -2,9 +2,10 @@
 #include <vector>
 #include <cstdlib>
 #include <thread>
+#include <mutex>
 
 using namespace std;
-
+std::mutex mut;
 
 void print(std::vector<std::vector<int>> &arr){
     for (int i = 0; i < arr.size(); ++i) {
@@ -37,12 +38,13 @@ void surroundings(int &i, int &j, std::vector<std::vector<int>> &arr, int &count
 	}
 
 }
-void lineInThread(std::vector<std::vector<int>> &arr, int &line){
+void lineInThread(std::vector<std::vector<int>> &arr, int line){
     int counter = 0;
     std::vector<int> tmpLine;
+    tmpLine.resize(arr.size());
     for(int cell = 0; cell< arr[line].size(); ++cell){
         surroundings(line, cell, arr, counter);
-        if (arr[line][cell] && counter>2 ){                                   //otocenae znamenko >
+        if (arr[line][cell] && counter<2 ){                                   //otocenae znamenko >
             tmpLine[cell]= 0;
         }
         else if (arr[line][cell] && (counter == 2 || counter == 3 )){
@@ -56,6 +58,15 @@ void lineInThread(std::vector<std::vector<int>> &arr, int &line){
         }
 
     }
+
+    mut.lock();
+    std::copy(begin(tmpLine), end(tmpLine), std::begin(arr[line]));
+//    arr[line].emplace(tmpLine.cbegin(), tmpLine.cend());
+    mut.unlock();
+
+}
+void hello(int i){
+    std::cout<<"hello pandemic world "<<i<<std::endl;
 }
 
 
@@ -70,7 +81,7 @@ void paralelRound(std::vector<std::vector<int>> &arr){
     }
 
     for (int th = 0; th < arr.size(); ++th){
-        threads.push_back(std::thread(lineInThread,arr,th));
+        threads.emplace_back(std::thread(lineInThread,std::ref(arr), th));
     }
 
     for (std::thread & th : threads){
@@ -91,7 +102,7 @@ void round(std::vector<std::vector<int>> &arr){
             int counter = 0;
 	   surroundings(i, j, arr, counter);
 	  //	std::cout<< counter<<std::endl;
-            if (arr[i][j] && counter>2 ){                                   //otocenae znamenko >
+            if (arr[i][j] && counter<2 ){                                   //otocenae znamenko >
                 tmp[i][j]= 0;
             }
             else if (arr[i][j] && (counter == 2 || counter == 3 )){
