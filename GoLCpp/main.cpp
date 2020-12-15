@@ -29,7 +29,8 @@ void surroundings(int &i, int &j, std::vector<std::vector<int>> &arr, int &count
 	    for (int l = j - 1; l < j + 2; ++l) {
                     if (k >= 0 &&
                         l >= 0 &&
-                        k < arr.size() &&                                       l < arr[0].size() &&
+                        k < arr.size() &&
+                        l < arr[0].size() &&
                         (!(k == i && l == j))) { //meze
                             if (arr[k][l] == 1) {    //sousedi
                                 ++counter;

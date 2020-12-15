@@ -1,0 +1,1 @@
+/usr/bin/c++   -pthread -g   CMakeFiles/GoL.dir/main.cpp.o  -o GoL 
