@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47161733-0c47-489b-b90c-8ae8f828e88d" name="Default Changelist" comment="" />
+    <list default="true" id="47161733-0c47-489b-b90c-8ae8f828e88d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../GoL/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../GoL/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GoL/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../GoL/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GoLCpp/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../GoLCpp/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GoLCpp/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../GoLCpp/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cv4/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../cv4/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cv4/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../cv4/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cv4/cmake-build-debug/CMakeFiles/cv4.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../cv4/cmake-build-debug/CMakeFiles/cv4.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cv4/cmake-build-debug/CMakeFiles/cv4.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../cv4/cmake-build-debug/CMakeFiles/cv4.dir/link.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +23,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1lT0vzXnHGugukckg4sjxAMwQ4h" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -56,6 +69,7 @@
       <updated>1607606008203</updated>
       <workItem from="1607606009632" duration="13907000" />
       <workItem from="1608050378965" duration="921000" />
+      <workItem from="1608060086633" duration="205000" />
     </task>
     <servers />
   </component>
