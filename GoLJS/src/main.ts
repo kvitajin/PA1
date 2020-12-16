@@ -125,17 +125,17 @@ async function main(){
 
     const result = await Promise.all([
 
-        paralelRound({id: 0, data:playingBoard}).then(msg=>console.log(msg)).catch(err=>console.error(err)),
-        paralelRound({id: 1, data:playingBoard}).then(msg=>console.log(msg)).catch(err=>console.error(err)),
-        paralelRound({id: 2, data:playingBoard}).then(msg=>console.log(msg)).catch(err=>console.error(err)),
-        paralelRound({id: 3, data:playingBoard}).then(msg=>console.log(msg)).catch(err=>console.error(err)),
-        paralelRound({id: 4, data:playingBoard}).then(msg=>console.log(msg)).catch(err=>console.error(err)),
-        paralelRound({id: 5, data:playingBoard}).then(msg=>console.log(msg)).catch(err=>console.error(err)),
+        paralelRound({id: 0, data:playingBoard}),
+        paralelRound({id: 1, data:playingBoard}),
+        paralelRound({id: 2, data:playingBoard}),
+        paralelRound({id: 3, data:playingBoard}),
+        paralelRound({id: 4, data:playingBoard}),
+        paralelRound({id: 5, data:playingBoard}),
 
     ]);
-    console.log(result);
+    // console.log(result);
     for (let i= 0; i< result.length; ++i){
-        playingBoard[]= 
+        playingBoard[i]=result[i];
     }
     print(playingBoard)
 }

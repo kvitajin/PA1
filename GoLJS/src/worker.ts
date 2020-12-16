@@ -57,6 +57,6 @@ for (let j=0; j<workerData.data[0].length; ++j){
 }
 
 // console.log([workerData.id, tmp]);
-parentPort?.postMessage([workerData.id, tmp]);
+parentPort?.postMessage(tmp);
 
 // parentPort?.postMessage(`Hi! I'm worker number ${workerData.id}, ${workerData.data}`);
