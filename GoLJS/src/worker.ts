@@ -32,9 +32,9 @@ for (let j=0; j<workerData.data[0].length; ++j){
 				k < workerData.data.length &&
 				l < workerData.data[0].length &&
 				(!(k == workerData.id && l == j))){
-					if(workerData.data[k][l]==1){
-						++counter;
-					}
+				if(workerData.data[k][l]==1){
+					++counter;
+				}
 			}
 		}
 	}
@@ -54,7 +54,9 @@ for (let j=0; j<workerData.data[0].length; ++j){
 	else{
 		tmp.push(0)
 	}
+
 }
+
 
 // console.log([workerData.id, tmp]);
 parentPort?.postMessage(tmp);
