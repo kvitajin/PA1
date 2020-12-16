@@ -3,9 +3,7 @@
 #include <cstdlib>
 #include <thread>
 #include <mutex>
-#include <latch>
 
-using namespace std;
 std::mutex mut;
 
 void print(std::vector<std::vector<int>> &arr){
@@ -13,10 +11,13 @@ void print(std::vector<std::vector<int>> &arr){
         std::cout<< "|";
         for (int j = 0; j < arr[0].size(); ++j) {
             if (arr[i][j]==1){
+//                std::cout<<" "<<arr[i][j]<<" ";//<<" ■ ";
                 std::cout<<" ■ ";
             }
             else{
-                std::cout<<"   ";       //□  ⬜
+//                std::cout<<" "<<arr[i][j]<<" ";//<<"   ";       //□  ⬜
+                std::cout<<"   ";
+
             }
         }
         std::cout<< "|" <<std::endl;
@@ -40,51 +41,47 @@ void surroundings(int &i, int &j, std::vector<std::vector<int>> &arr, int &count
 	}
 
 }
-void lineInThread(std::vector<std::vector<int>> &arr, std::latch &latch, int line){
+void lineInThread(std::vector<std::vector<int>> &arr, int line){
     int counter = 0;
     std::vector<int> tmpLine;
-    tmpLine.resize(arr.size());
+//    tmpLine.resize(arr.size());
 
     for(int cell = 0; cell< arr[line].size(); ++cell){
+        counter=0;
         surroundings(line, cell, arr, counter);
-        if (arr[line][cell] && counter<2 ){                                   //otocenae znamenko >
-            tmpLine[cell]= 0;
-        }
-        else if (arr[line][cell] && (counter == 2 || counter == 3 )){
-            tmpLine[cell]= 1;
-        }
-        else if (arr[line][cell] && counter >3){
-        tmpLine[cell]= 0;
-        }
-        else if (!arr[line][cell] && counter==3 ){
-            tmpLine[cell]= 1;
-        }
-
+//        std::cout<< line<<cell<<counter<<std::endl;
+//        tmpLine.push_back(counter);
+        if (arr[line][cell] && counter<2 )                          tmpLine.push_back(0);
+        else if (arr[line][cell] && (counter == 2 || counter == 3 ))tmpLine.push_back(1);
+        else if (arr[line][cell] && counter >3)                     tmpLine.push_back(0);
+        else if (!arr[line][cell] && counter==3 )                   tmpLine.push_back(1);
+        else                                                        tmpLine.push_back(0);
     }
-    latch.count_down();
-    mut.lock();
-    std::copy(begin(tmpLine), end(tmpLine), std::begin(arr[line]));
-//    arr[line].emplace(tmpLine.cbegin(), tmpLine.cend());
-    mut.unlock();
+    for (int i : tmpLine) {
+        std::cout<<" "<< i<<" ";
+    }
+    std::cout<<std::endl;
+    //    mut.lock();
+    //    arr[line]=tmpLine;
+    //    mut.unlock();
+//    std::cout<< line<<tmpLine[0]<<tmpLine[2]<<std::endl;
 
 }
-void hello(int i){
-    std::cout<<"hello pandemic world "<<i<<std::endl;
-}
+
 
 
 void paralelRound(std::vector<std::vector<int>> &arr){
     std::vector<std::vector<int>> tmp;
     std::vector<std::thread> threads;
     std::vector<int> row;
-    std::latch latch(arr.size());
     tmp.resize(arr.size());
     for (int i = 0; i < arr.size(); ++i) {
         tmp[i].resize(arr[i].size());
     }
 
-    for (int th = 0; th < arr.size(); ++th){
-        threads.emplace_back(std::thread(lineInThread,std::ref(arr), std::ref(latch), th));
+    threads.reserve(arr.size());
+for (int th = 0; th < arr.size(); ++th){
+        threads.emplace_back(std::thread(lineInThread,std::ref(arr), th));
     }
 
     for (std::thread & th : threads){
@@ -103,8 +100,8 @@ void round(std::vector<std::vector<int>> &arr){
     for (int i = 0; i < arr.size(); ++i) {
         for (int j = 0; j < arr[i].size(); ++j) {
             int counter = 0;
-	   surroundings(i, j, arr, counter);
-	  //	std::cout<< counter<<std::endl;
+	        surroundings(i, j, arr, counter);
+//	  	std::cout<< counter<<std::endl;
             if (arr[i][j] && counter<2 ){                                   //otocenae znamenko >
                 tmp[i][j]= 0;
             }
@@ -138,6 +135,7 @@ int main() {
     print(playingBoard);
    // system("clear");
     paralelRound(playingBoard);
+    std::cout<<std::endl;
     print(playingBoard);
 
 
