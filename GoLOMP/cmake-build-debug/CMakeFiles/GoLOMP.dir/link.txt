@@ -1,0 +1,1 @@
+/usr/bin/c++    -fopenmp -g   CMakeFiles/GoLOMP.dir/main.cpp.o  -o GoLOMP 
